@@ -139,7 +139,7 @@ function onMouseClick() {
     radius++;
 
     if(radius == 5){
-        radius = 1;
+        radius = 2;
     }
 }
 

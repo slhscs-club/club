@@ -1,0 +1,32 @@
+.nav-custom {
+    background-color: #141414;
+    position: fixed;
+    top: 32px;
+    right: 128px;
+    z-index: 11;
+}
+
+.nav-custom a {
+    color: white;
+    font-size: 16pt;
+    cursor: crosshair;
+}
+
+.nav-custom .nav-link + .nav-link {
+    margin-left: 4rem;
+}
+
+.nav-custom a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+.nav-custom a:visited {
+    color: white;
+    text-decoration: underline;
+}
+
+.nav-custom .active {
+    color: white;
+    text-decoration: underline;
+}
