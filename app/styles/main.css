@@ -9,7 +9,7 @@ body {
     cursor: crosshair;
 }
 
-img {
+img, br {
     user-select: none;
 }
 
@@ -104,6 +104,13 @@ p {
     -moz-box-shadow: 0px 8px 32px 12px rgba(0,0,0,.5);
 }
 
+@media(max-width: 768px) {
+    .social-media-icon-lg {
+        margin: auto;
+        margin-bottom: 32px;
+    }
+}
+
 #social-media-container {
     z-index: 11;
     position: fixed;
@@ -115,6 +122,7 @@ p {
 h2 {
     font-family: "IBM Plex Mono", monospace;
     font-size: 16pt;
+    user-select: none;
     margin-bottom: 32px;
 }
 
@@ -132,4 +140,9 @@ h2 {
     box-shadow: 0px 8px 32px 12px rgba(0,0,0,1);
     -webkit-box-shadow: 0px 8px 32px 12px rgba(0,0,0,1);
     -moz-box-shadow: 0px 8px 32px 12px rgba(0,0,0,1);
+}
+
+i {
+    font-style: normal;   
+    font-family: 'Cairo', sans-serif;
 }
