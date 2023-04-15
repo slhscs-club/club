@@ -34,3 +34,9 @@
     color: white;
     text-decoration: underline;
 }
+
+@media(max-width: 1000px) {
+    .nav-custom {
+        display: none !important;
+    }
+}
