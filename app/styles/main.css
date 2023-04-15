@@ -1,0 +1,27 @@
+body{
+    margin:0;
+    width: 100%;
+    width: 100vw;
+    color: white;
+    overflow-x: hidden;
+    background-color: #141414;
+}
+canvas{
+    background: #141414;
+    width: 100vw;
+    height: 100vh;
+}
+h1{
+    position: absolute;
+    left: 0;
+    top: 85vh;
+    color: white;
+    z-index:10;
+    font-weight: normal;
+    font-size: 36pt;
+    font-family: 'Chivo Mono', monospace;
+    width: 100%; 
+    text-align: center;
+    margin: 0;
+    user-select: none;
+}
