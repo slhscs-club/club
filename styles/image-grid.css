@@ -15,8 +15,19 @@
     object-fit: cover;
 }
 
+#carouselExampleIndicators {
+    display: none;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 56vmin;
+    object-fit: cover;
+}
+
+
 @media(max-width: 768px) {
-    .photo-gallery {
+    /* .photo-gallery {
         overflow: auto;
         display: block;
         white-space: nowrap;
@@ -32,5 +43,13 @@
         width: 100%;
         height: 56vmin;
         display: inline-block;
+    } */
+
+    .photo-gallery {
+        display: none;
+    }
+
+    #carouselExampleIndicators {
+        display: inherit;
     }
 }

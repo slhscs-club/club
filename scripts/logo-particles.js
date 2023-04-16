@@ -27,12 +27,17 @@ let timeouts = [];
 const colors = ["#FFFFFF", "#AAAAAA"];
 let ww;
 let wh;
+let loaded = false
 
 addEventListener("DOMContentLoaded", () => {
     canvas = document.querySelector("#particle-canvas");
     ctx = canvas.getContext("2d");
     ww = canvas.width = window.innerWidth;
     wh = canvas.height = window.innerHeight;
+
+    if (ww <= 540) {
+        radius = 0.5;
+    }
 
     window.addEventListener("resize", initSceneWait);
     window.addEventListener("mousemove", onMouseMove);
@@ -41,6 +46,8 @@ addEventListener("DOMContentLoaded", () => {
     window.addEventListener("touchend", onTouchEnd);
     initScene();
     requestAnimationFrame(render);
+
+    loaded = true;
 });
 
 function Particle(x,y) {
@@ -141,6 +148,10 @@ function onMouseClick() {
     if(radius == 5){
         radius = 2;
     }
+
+    if (ww <= 540) {
+        radius = 0.5;
+    }
 }
 
 function render(a) {
@@ -153,6 +164,10 @@ function render(a) {
 }
 
 function initSceneWait() {
+    if (loaded && window.innerWidth <= 540) {
+        return;
+    }
+
     while (timeouts.length > 0) {
         clearTimeout(timeouts.pop());
     }
