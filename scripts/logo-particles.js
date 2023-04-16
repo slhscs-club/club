@@ -145,7 +145,7 @@ function initScene() {
 function onMouseClick() {
     radius++;
 
-    if(radius == 5){
+    if(radius >= 5){
         radius = 2;
     }
 
