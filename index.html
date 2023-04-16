@@ -26,7 +26,7 @@
                     <nav class="nav nav-custom float-md-end d-flex justify-content-left">
                         <a class="nav-link py-1 px-0 active" aria-current="page" href="#">#Home</a>
                         <a class="nav-link py-1 px-0" href="#">#About</a>
-                        <a class="nav-link py-1 px-0" href="#">#Activites</a>
+                        <a class="nav-link py-1 px-0" href="#">#Activities</a>
                         <a class="nav-link py-1 px-0" href="#">#Contests</a>
                     </nav>
                 </div>
@@ -34,9 +34,10 @@
             </nav>
         </div>
 
-        <canvas id="particle-canvas"></canvas>
-        <h1 id="site-title">SLHS Computer Science Club</h1>
-
+        <section id="home">
+            <canvas id="particle-canvas"></canvas>
+            <h1 id="site-title">SLHS Computer Science Club</h1>
+        </section>
         <br>
         <br>
         <br>
@@ -47,93 +48,141 @@
         <br>
         
         <div class="container-sm">
-            <h1 class="header">Hello, World!</h1>
-            <p>
-            We're the Seven Lakes High School Computer Science Club.  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum 
-            dolore eu fugiat nulla pariatur.
-            </p>
-
-            <h1 id="meeting-time">We meet every Monday at 2:45 P.M. in Room 1001.</h1>
-
-            <div class="row justify-content-md-center">
-                <div class="col-md-auto text-center">
-                    <div class="social-media-icon-lg">
-                        <img src="images/Discord - Original.svg" alt="" draggable="false">
+            <section id="about">
+                <h1 class="header">Hello, World!</h1>
+                <p>
+                <b>We're the Seven Lakes High School Computer Science Club.</b>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum 
+                dolore eu fugiat nulla pariatur.
+                </p>
+    
+                <h1 id="meeting-time">We meet every Monday at 2:45 P.M. in Room 1001.</h1>
+    
+                <div class="row justify-content-md-center">
+                    <div class="col-md-auto text-center">
+                        <div class="social-media-icon-lg">
+                            <img src="images/Discord - Original.svg" alt="" draggable="false">
+                        </div>
+                        <h2>Join us on Discord!</h2>
                     </div>
-                    <h2>Join us on Discord!</h2>
-                </div>
-                <div class="col-md-auto text-center">
-                    <div class="social-media-icon-lg">
-                        <img src="images/Instagram.svg" alt="" draggable="false">
-                    </div>
-                    <h2>Follow us on Instagram!</h2>
-                </div>  
-            </div>
+                    <div class="col-md-auto text-center">
+                        <div class="social-media-icon-lg">
+                            <img src="images/Instagram.svg" alt="" draggable="false">
+                        </div>
+                        <h2>Follow us on Instagram!</h2>
+                    </div>  
+                </div>    
+            </section>
 
             <br>
             <br>
             
-            <h1 class="header"><i>#</i>Activites</h1>
-            
-            <div class="photo-gallery">
-                <div class="image-col">
-                    <div class="photo">
-                        <img src="images/1.png" alt="" draggable="false">
+            <section id="activities">
+                <h1 class="header"><i>#</i>Activites</h1>
+                
+                <div class="photo-gallery">
+                    <div class="image-col">
+                        <div class="photo">
+                            <img src="images/1.png" alt="" draggable="false">
+                        </div>
+                        <div class="photo">
+                            <img src="images/3.png" alt="" draggable="false">
+                        </div>
                     </div>
-                    <div class="photo">
-                        <img src="images/3.png" alt="" draggable="false">
+                    <div class="image-col">
+                        <div class="photo">
+                            <img src="images/3.png" alt="" draggable="false">
+                        </div>
+                        <div class="photo">
+                            <img src="images/2.png" alt="" draggable="false">
+                        </div>
                     </div>
-                </div>
-                <div class="image-col">
-                    <div class="photo">
-                        <img src="images/3.png" alt="" draggable="false">
+                    <div class="image-col">
+                        <div class="photo">
+                            <img src="images/4.png" alt="" draggable="false">
+                        </div>
+                        <div class="photo">
+                            <img src="images/1.png" alt="" draggable="false">
+                        </div>
                     </div>
-                    <div class="photo">
-                        <img src="images/2.png" alt="" draggable="false">
+                </div>            
+                
+                <div id="carouselExampleIndicators" class="carousel slide" data-bs-theme="dark">
+                    <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
                     </div>
-                </div>
-                <div class="image-col">
-                    <div class="photo">
-                        <img src="images/4.png" alt="" draggable="false">
+                    <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="images/1.png" class="d-block w-100" alt="">
                     </div>
-                    <div class="photo">
-                        <img src="images/1.png" alt="" draggable="false">
+                    <div class="carousel-item">
+                        <img src="images/2.png" class="d-block w-100" alt="">
                     </div>
-                </div>
-            </div>            
-            
-            <div id="carouselExampleIndicators" class="carousel slide" data-bs-theme="dark">
-                <div class="carousel-indicators">
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
-                </div>
-                <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <img src="images/1.png" class="d-block w-100" alt="">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="images/2.png" class="d-block w-100" alt="">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="images/3.png" class="d-block w-100" alt="">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="images/4.png" class="d-block w-100" alt="">
-                  </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-                </button>
-            </div>              
+                    <div class="carousel-item">
+                        <img src="images/3.png" class="d-block w-100" alt="">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/4.png" class="d-block w-100" alt="">
+                    </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                    </button>
+                </div> 
+                
+                <br>
+                <br>
+
+                <h1 class="subheader">Frequently Asked Questions</h1>
+
+                <br>
+                <br>
+
+                <h1 class="subheader">Past Meetings</h1>
+
+            </section>
+
+            <br>
+            <br>
+
+            <section id="contests">
+                <h1 class="header"><i>#</i>Contests</h1>
+                <p>
+                    <b>Pizza. Candy. Code.</b>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
+                    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+                    nisi ut aliquip ex ea commodo consequat.
+                </p>
+                <br>
+                <p>
+                    <b>We host a national contest.</b>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
+                    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+                    nisi ut aliquip ex ea commodo consequat.  
+                </p>
+
+                <p style="font-family: 'IBM Plex Mono', monospace; text-align: center;">View our contest schedule <a href="https://www.apluscompsci.com/cs_cont_list.htm" target="_blank" rel="noopener noreferrer">here</a>.</p>
+            </section>
+
+            <br>
+            <br>
+            <br>
+            <br>
+
         </div>
+
+        <footer style="width: 100vw; background-color: #181818;">
+            <h1 class="header" style="text-align: center; padding: 64px; margin: 0;">Thanks for visiting! Hope to see you soon!</h1>
+        </footer>
 
         <div id="social-media-container">
             <div>
@@ -143,10 +192,5 @@
                 <img src="images/Instagram - Negative.svg" alt="" draggable="false">
             </div>
         </div>
-
-        <br>
-        <br>
-        <br>
-        <br>
     </body>
 </html>

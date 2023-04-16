@@ -49,6 +49,15 @@ canvas {
     margin-bottom: 32px;
 }
 
+.subheader {
+    font-family: 'IBM Plex Mono', monospace;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24pt;
+    user-select: none;
+    margin-bottom: 32px;
+}
+
 p {
     font-family: 'Cairo', sans-serif;
     font-style: normal;
@@ -84,6 +93,11 @@ p {
 @media only screen and (max-width: 540px) {
     .header {
         font-size: 24pt;
+    }
+
+    .subheader {
+        margin-top: -16px;
+        font-size: 20pt;
     }
 
     p {
@@ -176,8 +190,20 @@ h2 {
     }
 }
 
+a {
+    color: white;
+    font-weight: bold;
+}
 
 i {
     font-style: normal;   
     font-family: 'Cairo', sans-serif;
+}
+
+b {
+    font-weight: normal;
+    font-style: normal;
+    font-family: 'Cairo', sans-serif;
+    color: #141414;
+    background-color: white;
 }
