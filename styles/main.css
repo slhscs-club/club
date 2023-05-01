@@ -207,3 +207,43 @@ b {
     color: #141414;
     background-color: white;
 }
+
+#faq-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
+
+#faq-container div {
+    margin-top: 16px;
+    min-width: 25%;
+    flex: 1;
+    border: #ffffff;
+}
+
+.faq-question-div {
+    text-align: center;
+}
+
+.faq-question-div h1 {
+    padding-top: 16px;
+    padding-left: 32px;
+    padding-right: 32px;
+    font-size: 20pt;
+    text-align: center;
+}
+
+
+@media(max-width: 1456px) {
+    #faq-container div {
+        min-width: 50%;
+    }
+}
+
+@media(max-width: 768px) {
+    #faq-container div {
+        min-width: 500px;
+    }
+}
