@@ -283,6 +283,7 @@ b {
     background-color: white;
     width: 200px;
     height: 200px;
+    vertical-align: middle;
 }
 
 .circle p {
@@ -304,13 +305,22 @@ b {
 }
 
 .circle:hover .circle-description {
+    position: absolute;
+    width: 196px;
+    transform: translate(0, -20%);
     display: block;
     line-height: normal;
     font-weight: bold;
 }
 
+.circle-description-reduce-size {
+    font-size: 16pt;
+}
+
 .circle img {
     display: none;
+    width: 0px;
+    transition: width 2s;
 }
 
 .circle:hover img {
@@ -318,12 +328,12 @@ b {
     width: 32px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: -8px;
+    margin-top: 96px;
     transition: margin-top 0.2s, width 0.2s;
 }
 
 .circle img:hover {
-    margin-top: -14px;
+    margin-top: 90px;
     width: 44px;
     cursor: pointer;
 }
@@ -340,4 +350,21 @@ b {
         width: 128px;
         height: 128px;
     }
+
+    .circle:hover .circle-description {
+        width: 124px;
+    }
+
+    .circle-description-reduce-size {
+        font-size: 10pt;
+    }
+
+    .circle:hover img {
+        margin-top: 62px;
+    }
+    
+    .circle img:hover {
+        margin-top: 56px;
+    }
+    
 }
