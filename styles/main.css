@@ -41,13 +41,15 @@ canvas {
 }
 
 .typewriter h1 {
+    display: inline-block;
+    max-width: fit-content;
     overflow: hidden; /* Ensures the content is not revealed until the animation */
-    border-right: .15em solid orange; /* The typwriter cursor */
+    border-right: .15em solid #CFCFCF; /* The typwriter cursor */
     white-space: nowrap; /* Keeps the content on a single line */
     margin: 0 auto; /* Gives that scrolling effect as the typing happens */
     letter-spacing: .15em; /* Adjust as needed */
     animation: 
-      typing 3.5s steps(40, end),
+      typing 3s steps(40, end),
       blink-caret .75s step-end infinite;
   }
   
@@ -60,10 +62,21 @@ canvas {
   /* The typewriter cursor effect */
   @keyframes blink-caret {
     from, to { border-color: transparent }
-    50% { border-color: orange; }
-    }
+    50% { border-color: #CFCFCF; }
+}
+
+
+.hidden {
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.show {
+    opacity: 1;
+}
 
 .header {
+    display: inline-block;
     font-family: 'IBM Plex Mono', monospace;
     font-style: normal;
     font-weight: 700;

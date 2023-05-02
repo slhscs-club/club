@@ -50,7 +50,7 @@
             
             <div class="container-sm">
                 <section id="about">
-                    <div class="typewriter">
+                    <div class="hidden">
                         <h1 class="header">Hello, World!</h1>
                     </div>
                     <p>
@@ -277,5 +277,23 @@
                 <img class="small-social-media-icon" src="images/Instagram - Negative.svg" alt="" draggable="false">
             </div>
         </div>
+
+        <script>
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    console.log(entry)
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('show');
+                        entry.target.classList.add('typewriter');
+                    } else {
+                        entry.target.classList.remove('show');
+                        entry.target.classList.remove('typewriter');
+                    }
+                });
+            });
+
+            const hiddenElements = document.querySelectorAll(".hidden");
+            hiddenElements.forEach((el) => observer.observe(el));
+        </script>
     </body>
 </html>
