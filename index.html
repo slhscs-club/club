@@ -50,7 +50,7 @@
             
             <div class="container-sm">
                 <section id="about">
-                    <div class="hidden">
+                    <div class="typewriter-header hidden">
                         <h1 class="header">Hello, World!</h1>
                     </div>
                     <p>
@@ -86,26 +86,26 @@
                     
                     <div class="photo-gallery">
                         <div class="image-col">
-                            <div class="photo">
+                            <div class="photo hidden">
                                 <img src="images/1.png" alt="" draggable="false">
                             </div>
-                            <div class="photo">
+                            <div class="photo hidden">
                                 <img src="images/3.png" alt="" draggable="false">
                             </div>
                         </div>
                         <div class="image-col">
-                            <div class="photo">
+                            <div class="photo hidden">
                                 <img src="images/3.png" alt="" draggable="false">
                             </div>
                             <div class="photo">
                                 <img src="images/2.png" alt="" draggable="false">
                             </div>
                         </div>
-                        <div class="image-col">
+                        <div class="image-col hidden">
                             <div class="photo">
                                 <img src="images/4.png" alt="" draggable="false">
                             </div>
-                            <div class="photo">
+                            <div class="photo hidden">
                                 <img src="images/1.png" alt="" draggable="false">
                             </div>
                         </div>
@@ -148,37 +148,37 @@
                     <h1 class="subheader">Frequently Asked Questions</h1>
 
                     <div id="faq-container">
-                        <div class="faq-question-div">
+                        <div class="faq-question-div hidden">
                             <h1 class="subheader">What activities does the club do?</h1>
                         </div>
-                        <div class="faq-answer-div">
+                        <div class="faq-answer-div hidden">
                             <p>
                                 We hold presentations on computer science topics every week, practice for contests, host a national contest, and provide an environment
                                 for Seven Lakes students interested in computer science to connect with each other.  
                             </p>
                         </div>
-                        <div class="faq-question-div">
+                        <div class="faq-question-div hidden">
                             <h1 class="subheader">How do I join?</h1>
                         </div>
-                        <div class="faq-answer-div">
+                        <div class="faq-answer-div hidden">
                             <p>
                                 Our club is open to anyone who wants to attend our meetings. No sign up is required and we don't keep a list of members. As far
                                 as we're concerned, if you come to meetings, you're part of the club. 
                             </p>
                         </div>
-                        <div class="faq-question-div">
+                        <div class="faq-question-div hidden">
                             <h1 class="subheader">Do I have to pay any fees?</h1>
                         </div>
-                        <div class="faq-answer-div">
+                        <div class="faq-answer-div hidden">
                             <p>
                                 No! Our club is completely free to everyone. If you meet the requirements and would like to join National CS Honor Society after a year, 
                                 then we ask for a small fee to cover the cost of the Honor Society.   
                             </p>
                         </div>
-                        <div class="faq-question-div">
+                        <div class="faq-question-div hidden">
                             <h1 class="subheader">Do I need to compete to be in the club?</h1>
                         </div>
-                        <div class="faq-answer-div">
+                        <div class="faq-answer-div hidden">
                             <p>
                                 Competitions are not required. We encourage everyone to give contests a try because they're fun and a great way to improve your problem 
                                 solving skills, but we recognize that there wide range of interests in CS beyond competitions.
@@ -191,7 +191,7 @@
 
                     <!-- rewrite this using flexbox??? -->
                     <h1 class="subheader">Past Meetings</h1>
-                    <div id="past-meetings-container">
+                    <div id="past-meetings-container" class="hidden">
                         <div class="circle-row">
                             <div class="circle">
                                 <p>9/12</p>
@@ -281,13 +281,16 @@
         <script>
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach((entry) => {
-                    console.log(entry)
                     if (entry.isIntersecting) {
                         entry.target.classList.add('show');
-                        entry.target.classList.add('typewriter');
+                        if (entry.target.classList.contains("typewriter-header")) {
+                            entry.target.classList.add('typewriter');
+                        }
                     } else {
                         entry.target.classList.remove('show');
-                        entry.target.classList.remove('typewriter');
+                        if (entry.target.classList.contains("typewriter-header")) {
+                            entry.target.classList.remove('typewriter');
+                        }
                     }
                 });
             });
