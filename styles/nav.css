@@ -11,7 +11,7 @@
 }
 
 .nav-custom a {
-    color: white;
+    color: white !important;
     font-size: 16pt;
     cursor: crosshair;
 }
@@ -21,17 +21,17 @@
 }
 
 .nav-custom a:hover {
-    color: white;
+    color: white !important;
     text-decoration: underline;
 }
 
 .nav-custom a:visited {
-    color: white;
+    color: white !important;
     text-decoration: underline;
 }
 
 .nav-custom .active {
-    color: white;
+    color: white !important;
     text-decoration: underline;
 }
 
