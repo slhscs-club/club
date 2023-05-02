@@ -12,7 +12,13 @@
 .photo img {
     width: 100%;
     height: 100%;
+    filter: grayscale(0);
     object-fit: cover;
+    transition: filter 0.5s;
+}
+
+.photo img:hover {
+    filter: grayscale(1);
 }
 
 #carouselExampleIndicators {
