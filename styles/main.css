@@ -75,6 +75,27 @@ canvas {
     opacity: 1;
 }
 
+.hidden-card {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateX(-100%);
+    transition: all 1s;
+}
+
+.card-showing {
+    opacity: 1;
+    filter: blur(0px);
+    transform: translateX(0%);   
+}
+
+.honor-society-card:nth-child(2) {
+    transition-delay: 200ms;
+}
+
+.honor-society-card:nth-child(3) {
+    transition-delay: 400ms;
+}
+
 .header {
     display: inline-block;
     font-family: 'IBM Plex Mono', monospace;
@@ -265,6 +286,8 @@ i {
     font-family: 'Cairo', sans-serif;
 }
 
+
+/* Find a different effect for this, could look better */
 b {
     font-weight: normal;
     font-style: normal;
