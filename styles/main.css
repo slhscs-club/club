@@ -88,12 +88,16 @@ canvas {
     transform: translateX(0%);   
 }
 
-.honor-society-card:nth-child(2) {
-    transition-delay: 200ms;
+@media (min-width: 992px) {
+    .honor-society-card:nth-child(2) {
+        transition-delay: 200ms;
+    }   
 }
 
-.honor-society-card:nth-child(3) {
-    transition-delay: 400ms;
+@media (min-width: 1200px) {
+    .honor-society-card:nth-child(3) {
+        transition-delay: 400ms;
+    }  
 }
 
 .header {
