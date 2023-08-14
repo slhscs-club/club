@@ -22,7 +22,7 @@ let ctx;
 let particles = [];
 let amount = 0;
 let mouse = {x:0,y:0};
-let radius = 3;
+let radius = 2;
 let timeouts = [];
 const colors = ["#FFFFFF", "#AAAAAA"];
 let ww;
