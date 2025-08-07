@@ -507,3 +507,30 @@ b {
     margin-inline: auto;
     cursor: pointer;
 }
+
+/* Registration Form Styles */
+.registration-form-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.registration-form-image {
+    max-width: 300px;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.registration-form-image:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
+
+@media(max-width: 768px) {
+    .registration-form-image {
+        max-width: 250px;
+    }
+}
