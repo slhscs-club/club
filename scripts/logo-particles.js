@@ -148,7 +148,7 @@ function onMouseClick() {
     radius++;
 
     if(radius >= 4){
-        radius = 2;
+        radius = 1;
     }
 
     if (ww <= 540) {

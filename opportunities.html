@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opportunities - SLHS CS Club</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400&family=IBM+Plex+Mono&display=swap" rel="stylesheet">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/nav.css">
+    <link rel="stylesheet" href="styles/scrollbar.css">
+    <style>
+        .opportunity-section {
+            margin-bottom: 80px;
+            padding: 40px;
+            background-color: #202020;
+            border-radius: 20px;
+            border: 1px solid #404040;
+            transition: all 0.3s ease;
+        }
+
+        .opportunity-section:hover {
+            background-color: #2a2a2a;
+            border-color: #606060;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .opportunity-header {
+            color: white;
+            font-family: 'IBM Plex Mono', monospace;
+            font-weight: 700;
+            font-size: 36pt;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .opportunity-content {
+            font-size: 18pt;
+            line-height: 1.6;
+            color: #CFCFCF;
+        }
+
+        .highlight-text {
+            color: white;
+            font-weight: 600;
+        }
+
+        .opportunity-highlight {
+            background-color: #2a2a2a;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 4px solid white;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 32px;
+            left: 32px;
+            background-color: #202020;
+            border: 1px solid white;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-family: 'IBM Plex Mono', monospace;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0px 8px 32px 12px rgba(0,0,0,.5);
+            z-index: 100;
+        }
+
+        .back-button:hover {
+            background-color: white;
+            color: #141414;
+            transform: translateY(-2px);
+        }
+
+        .page-title {
+            text-align: center;
+            margin: 120px 0 60px 0;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 48pt;
+            font-weight: 700;
+            color: white;
+        }
+
+        .container-opportunities {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        @media (max-width: 768px) {
+            .opportunity-section {
+                padding: 20px;
+                margin-bottom: 40px;
+            }
+            
+            .opportunity-header {
+                font-size: 28pt;
+            }
+            
+            .page-title {
+                font-size: 36pt;
+                margin: 100px 0 40px 0;
+            }
+            
+            .back-button {
+                top: 20px;
+                left: 20px;
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="back-button" onclick="window.location.href='index.html'">
+        ← Back to Home
+    </button>
+
+    <div class="container-opportunities">
+        <h1 class="page-title">Opportunities</h1>
+        
+        <section class="opportunity-section" id="national-organization">
+            <h2 class="opportunity-header">Join a National Organization</h2>
+            <div class="opportunity-content">
+                <p>
+                    <span class="highlight-text">CSHS (Computer Science Honor Society)</span> is a prestigious national organization that recognizes outstanding achievement in computer science. By joining CSHS, you'll become part of a community of high-achieving students across the country.
+                </p>
+                
+                <div class="opportunity-highlight">
+                    <h3 style="color: white; margin-bottom: 15px;">Benefits of CSHS Membership:</h3>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>National recognition for your CS achievements</li>
+                        <li>Enhanced college applications and resumes</li>
+                        <li>Access to exclusive scholarships and opportunities</li>
+                        <li>Networking with other high-achieving CS students</li>
+                        <li>Leadership development opportunities</li>
+                    </ul>
+                </div>
+
+                <p>
+                    <span class="highlight-text">Requirements for Induction:</span> To be inducted into CSHS, you need to volunteer 8 hours towards our club activities, pay the membership fee through Pay n Go under Computer Science Club, and fill out the official Google form. This is your chance to distinguish yourself in the CS community and show your dedication to excellence.
+                </p>
+            </div>
+        </section>
+
+        <section class="opportunity-section" id="community-leadership">
+            <h2 class="opportunity-header">Be a Leader in Your Community</h2>
+            <div class="opportunity-content">
+                <p>
+                    <span class="highlight-text">Leadership opportunities</span> are abundant in our CS Club, allowing you to develop essential skills while helping others grow in their computer science journey.
+                </p>
+
+                <div class="opportunity-highlight">
+                    <h3 style="color: white; margin-bottom: 15px;">Leadership Roles Available:</h3>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><span class="highlight-text">Student Presenters:</span> Lead weekly presentations on CS topics</li>
+                        <li><span class="highlight-text">Peer Tutors:</span> Help other students with programming concepts</li>
+                        <li><span class="highlight-text">Event Organizers:</span> Plan and coordinate club activities</li>
+                        <li><span class="highlight-text">Contest Coordinators:</span> Help organize programming competitions</li>
+                        <li><span class="highlight-text">Mentors:</span> Guide newer members in their CS journey</li>
+                    </ul>
+                </div>
+
+                <p>
+                    <span class="highlight-text">Why Lead?</span> Taking on leadership roles helps you develop communication skills, build confidence, and create a positive impact on your peers. It's also excellent preparation for college and future careers in technology. Our club provides a supportive environment where you can learn to lead while pursuing your passion for computer science.
+                </p>
+            </div>
+        </section>
+
+        <section class="opportunity-section" id="portfolio-building">
+            <h2 class="opportunity-header">Build Your Portfolio</h2>
+            <div class="opportunity-content">
+                <p>
+                    <span class="highlight-text">Real-world projects</span> are the best way to showcase your programming skills and creativity. Our club provides numerous opportunities to work on meaningful projects that serve the community and enhance your technical portfolio.
+                </p>
+
+                <div class="opportunity-highlight">
+                    <h3 style="color: white; margin-bottom: 15px;">Project Opportunities:</h3>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><span class="highlight-text">Web Development:</span> Create websites for school organizations</li>
+                        <li><span class="highlight-text">Mobile Apps:</span> Develop apps to solve real problems</li>
+                        <li><span class="highlight-text">Data Analysis:</span> Work with real datasets and create visualizations</li>
+                        <li><span class="highlight-text">Automation Tools:</span> Build tools to streamline school processes</li>
+                        <li><span class="highlight-text">Open Source:</span> Contribute to existing projects and learn collaboration</li>
+                    </ul>
+                </div>
+
+                <p>
+                    <span class="highlight-text">Portfolio Impact:</span> These projects demonstrate your practical skills, problem-solving abilities, and commitment to using technology for good. They're perfect for college applications, job interviews, and showcasing your growth as a programmer. Plus, you'll have the satisfaction of creating something that actually helps people!
+                </p>
+            </div>
+        </section>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+</body>
+</html>
