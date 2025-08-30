@@ -22,7 +22,7 @@ let ctx;
 let particles = [];
 let amount = 0;
 let mouse = {x:0,y:0};
-let radius = 2;
+let radius = 1;
 let timeouts = [];
 const colors = ["#FFFFFF", "#AAAAAA"];
 let ww;
@@ -95,14 +95,16 @@ Particle.prototype.render = function() {
 }
 
 function onMouseMove(e) {
-    mouse.x = e.clientX;
-    mouse.y = e.clientY;
+    const rect = canvas.getBoundingClientRect();
+    mouse.x = e.clientX - rect.left;
+    mouse.y = e.clientY - rect.top;
 }
 
 function onTouchMove(e) {
     if(e.touches.length > 0 ){
-        mouse.x = e.touches[0].clientX;
-        mouse.y = e.touches[0].clientY;
+        const rect = canvas.getBoundingClientRect();
+        mouse.x = e.touches[0].clientX - rect.left;
+        mouse.y = e.touches[0].clientY - rect.top;
     }
 }
 
@@ -145,7 +147,7 @@ function initScene() {
 function onMouseClick() {
     radius++;
 
-    if(radius >= 5){
+    if(radius >= 4){
         radius = 2;
     }
 

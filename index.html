@@ -17,6 +17,18 @@
     <link rel="stylesheet" href="styles/image-grid.css">
 </head>
     <body> 
+        <!-- Notification Header -->
+        <div id="notification-header" class="notification-header">
+            <div class="notification-content">
+                <div class="notification-text">
+                    <strong>🎓 Register for CSHS!</strong> Join the Computer Science Honor Society and pay your dues to distinguish yourself in the CS community. <a href="#registration" style="color: white; text-decoration: underline; font-weight: bold;">Click here to register!</a>
+                </div>
+                <button id="close-notification" class="close-notification" aria-label="Close notification">
+                    <span>&times;</span>
+                </button>
+            </div>
+        </div>
+
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
         <script src="scripts/logo-particles.js"></script>
 
@@ -272,8 +284,8 @@
                             <div class="registration-form-container hidden">
                                 <img src="images/Forms.png" alt="Registration Form" draggable="false" class="registration-form-image" onclick="window.open('https://docs.google.com/forms/d/1nAdEFvx7bZLTwxFghEFViQXVbj23Wuxx6M3MFcdE9Yg/viewform?pli=1&pli=1&edit_requested=true','_blank')">
                             </div>
-                            <h2>Join the CS Club!</h2>
-                            <p>Click the form above to register for the SLHS Computer Science Club.</p>
+                            <h2>Join the CS honor Society!</h2>
+                            <p>Getting inducted into an Honor Society is a great way to distinguish yourself<br> in the CS community and show your dedication to your college! To get inducted, <br> you need to <b>volunteer 8 hours</b> towards our club (we have a ton of opportunities), <br> <b>pay a fee</b> to support the club on Pay n Go under Computer Science Club, and <br> most importantly you <strong><b>HAVE</b></strong> to fill out the google form above.</p>
                         </div>
                     </div>
                 </section>
@@ -344,6 +356,29 @@
         </div>
 
         <script>
+            // Notification Header Functionality
+            document.addEventListener('DOMContentLoaded', function() {
+                const notificationHeader = document.getElementById('notification-header');
+                const closeButton = document.getElementById('close-notification');
+                const body = document.body;
+                
+                // Show notification and shift body content down
+                setTimeout(() => {
+                    body.classList.add('notification-active');
+                }, 500); // Wait for animation to start
+                
+                // Handle close button click
+                closeButton.addEventListener('click', function() {
+                    notificationHeader.classList.add('closing');
+                    body.classList.remove('notification-active');
+                    
+                    // Remove the header from DOM after animation
+                    setTimeout(() => {
+                        notificationHeader.remove();
+                    }, 500);
+                });
+            });
+
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
