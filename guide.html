@@ -3,7 +3,7 @@
 <html lang="en">
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>UIL_CS_GUIDE</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>UIL_CS_GUIDE (1)</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <style type="text/css">
     pre { line-height: 125%; }
 td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
@@ -7525,6 +7525,32 @@ a.anchor-link {
     --jp-layout-color1: #121212 !important;
     --jp-layout-color2: #2a2a2a !important;
 }
+
+.jp-RenderedHTMLCommon table td,
+.jp-RenderedHTMLCommon table th {
+    /* Set a light gray background for non-hovered cells */
+    background-color: #e0e0e0 !important; 
+    /* Set the text color to dark gray for contrast against the light background */
+    color: #2a2a2a !important; 
+    /* Add a subtle dark border for definition */
+    border: 1px solid #555 !important;
+}
+
+/* Optional: To make the entire table stand out slightly */
+.jp-RenderedHTMLCommon table {
+    border-collapse: collapse; /* Ensure borders meet neatly */
+    margin: 15px auto; /* Center the table if it's not full width */
+    max-width: 95%;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Subtle shadow for depth */
+}
+
+/* Ensure hover state remains visually distinct (e.g., darker or highlighted) */
+/* This is often handled by default themes, but you can explicitly define it */
+.jp-RenderedHTMLCommon table tr:hover td,
+.jp-RenderedHTMLCommon table tr:hover th {
+    background-color: #cccccc !important; /* Slightly darker gray on hover */
+    color: #111111 !important; /* Very dark text on hover */
+}
     
 /* Dark theme */
 body, .jp-Notebook, .jp-NotebookPanel, .jp-Cell {
@@ -7614,6 +7640,7 @@ code, pre {
     padding: 4px 6px;
     border-radius: 4px;
     font-size: 0.95em;
+    text-align: left !important;
 }
 
 /* Fade-in animation */
@@ -7662,6 +7689,8 @@ code, pre {
     border: none !important;
     color: inherit !important;
     --jp-layout-color0: transparent !important;
+    text-align: left !important;
+    margin-left: 30%;
 }
 
 /* Override dark fallback (unclassified) code text color */
@@ -7738,7 +7767,7 @@ code, pre {
     border-radius: 6px;     /* optional */
 }    
 
-.jp-CodeCell .CodeMirror, 
+.jp-CodeCell .CodeMirror,
 .jp-CodeCell .CodeMirror pre {
     word-break: break-word !important;   /* wrap long tokens */
     margin: 0 !important;                /* remove extra margin */
@@ -7842,6 +7871,121 @@ code, pre {
 <li>Bitwise: &lt;&lt;, &gt;&gt;, &gt;&gt;&gt;, ~, &amp;=, |=, ^=</li>
 </ul>
 <p>Operator precedence follows standard rules: parentheses first, then unary operators (++/--/!), multiplicative (*, /, %), additive (+, -), relational (&lt;, &gt;, &lt;=, &gt;=), equality (==, !=), logical AND (&amp;&amp;), logical OR (||), assignment last.</p>
+<h2 id="Order-Of-Operations-(Greater-=-First,-Associativity-=-Direction)-">Order Of Operations (Greater = First, Associativity = Direction) <a name="OOP"></a><a class="anchor-link" href="#Order-Of-Operations-(Greater-=-First,-Associativity-=-Direction)-">¶</a></h2><table>
+<thead>
+<tr>
+<th>Level</th>
+<th>Operator</th>
+<th>Description</th>
+<th>Associativity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>16</td>
+<td><code>()</code> <code>[]</code> <code>new</code> <code>.</code> <code>::</code></td>
+<td>parentheses, array access, object creation, member access, method reference</td>
+<td>left-to-right</td>
+</tr>
+<tr>
+<td>15</td>
+<td><code>++</code> <code>--</code></td>
+<td>unary post-increment, unary post-decrement</td>
+<td>left-to-right</td>
+</tr>
+<tr>
+<td>14</td>
+<td><code>+</code> <code>-</code> <code>!</code> <code>~</code> <code>++</code> <code>--</code></td>
+<td>unary plus, unary minus, unary logical NOT, unary bitwise NOT, unary pre-increment, unary pre-decrement</td>
+<td>right-to-left</td>
+</tr>
+<tr>
+<td>13</td>
+<td><code>()</code> (cast)</td>
+<td>cast</td>
+<td>right-to-left</td>
+</tr>
+<tr>
+<td>12</td>
+<td><code>*</code> <code>/</code> <code>%</code></td>
+<td>multiplicative</td>
+<td>left-to-right</td>
+</tr>
+<tr>
+<td>11</td>
+<td><code>+</code> <code>-</code> <code>+</code> (string concatenation)</td>
+<td>additive, string concatenation</td>
+<td>left-to-right</td>
+</tr>
+<tr>
+<td>10</td>
+<td><code>&lt;&lt;</code> <code>&gt;&gt;</code> <code>&gt;&gt;&gt;</code></td>
+<td>shift</td>
+<td>left-to-right</td>
+</tr>
+<tr>
+<td>9</td>
+<td><code>&lt;</code> <code>&lt;=</code> <code>&gt;</code> <code>&gt;=</code> <code>instanceof</code></td>
+<td>relational</td>
+<td>left-to-right</td>
+</tr>
+<tr>
+<td>8</td>
+<td><code>==</code> <code>!=</code></td>
+<td>equality</td>
+<td>left-to-right</td>
+</tr>
+<tr>
+<td>7</td>
+<td><code>&amp;</code></td>
+<td>bitwise AND</td>
+<td>left-to-right</td>
+</tr>
+<tr>
+<td>6</td>
+<td><code>^</code></td>
+<td>bitwise XOR</td>
+<td>left-to-right</td>
+</tr>
+<tr>
+<td>5</td>
+<td><code>\|</code></td>
+<td>bitwise OR</td>
+<td>left-to-right</td>
+</tr>
+<tr>
+<td>4</td>
+<td><code>&amp;&amp;</code></td>
+<td>logical AND</td>
+<td>left-to-right</td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>\| \|</code></td>
+<td>logical OR</td>
+<td>left-to-right</td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>?:</code></td>
+<td>ternary</td>
+<td>right-to-left</td>
+</tr>
+<tr>
+<td>1</td>
+<td><code>=</code> <code>+=</code> <code>-=</code> <code>*=</code> <code>/=</code> <code>%=</code> <code>&amp;=</code> <code>^=</code> <code>\| =</code> <code>&lt;&lt;=</code> <code>&gt;&gt;=</code> <code>&gt;&gt;&gt;=</code></td>
+<td>assignment</td>
+<td>right-to-left</td>
+</tr>
+<tr>
+<td>0</td>
+<td><code>-&gt;</code></td>
+<td>lambda expression, switch expression</td>
+<td>right-to-left</td>
+</tr>
+</tbody>
+</table>
+<hr/>
 <h3>Base Conversions</h3>
 <p>Numbers can be represented in binary, octal, decimal, and hexadecimal:</p>
 <ul>
@@ -7860,6 +8004,120 @@ code, pre {
 <li>Common methods: <code>length()</code>, <code>charAt()</code>, <code>substring()</code>, <code>indexOf()</code>, <code>split()</code></li>
 <li>Parsing: <code>Integer.parseInt("123")</code>, <code>Double.parseDouble("3.14")</code></li>
 </ul>
+<h3>RegEx: Regular Expressions</h3>
+<p>a sequence of symbols and characters expressing a string or pattern to be searched for within a longer piece of text</p>
+<hr/>
+<h4 id="Key-Regex-Symbols-and-Their-Usage"><strong>Key Regex Symbols and Their Usage</strong><a class="anchor-link" href="#Key-Regex-Symbols-and-Their-Usage">¶</a></h4><table>
+<thead>
+<tr>
+<th><strong>Symbol</strong></th>
+<th><strong>Meaning</strong></th>
+<th><strong>Example</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>.</code></td>
+<td>Matches any character (except newline)</td>
+<td><code>a.b</code> matches <code>acb</code>, <code>a1b</code>, but not <code>ab</code>.</td>
+</tr>
+<tr>
+<td><code>*</code></td>
+<td>Matches 0 or more of the preceding element</td>
+<td><code>a*</code> matches <code>a</code>, <code>aaa</code>, or empty.</td>
+</tr>
+<tr>
+<td><code>+</code></td>
+<td>Matches 1 or more of the preceding element</td>
+<td><code>a+</code> matches <code>a</code>, <code>aaa</code>, but not empty.</td>
+</tr>
+<tr>
+<td><code>?</code></td>
+<td>Matches 0 or 1 of the preceding element</td>
+<td><code>a?</code> matches <code>a</code> or empty.</td>
+</tr>
+<tr>
+<td><code>[abc]</code></td>
+<td>Matches any character in the set</td>
+<td><code>[abc]</code> matches <code>a</code>, <code>b</code>, or <code>c</code>.</td>
+</tr>
+<tr>
+<td><code>[^abc]</code></td>
+<td>Matches any character <em>not</em> in the set</td>
+<td><code>[^abc]</code> matches <code>d</code>, <code>e</code>, etc.</td>
+</tr>
+<tr>
+<td><code>[a-z]</code></td>
+<td>Matches any character in the range</td>
+<td><code>[a-z]</code> matches <code>a</code>, <code>b</code>, ..., <code>z</code>.</td>
+</tr>
+<tr>
+<td><code>\d</code></td>
+<td>Matches a digit (equivalent to <code>[0-9]</code>)</td>
+<td><code>\d</code> matches <code>3</code>, <code>9</code>, etc.</td>
+</tr>
+<tr>
+<td><code>\D</code></td>
+<td>Matches a non-digit</td>
+<td><code>\D</code> matches <code>a</code>, <code>!</code>, etc.</td>
+</tr>
+<tr>
+<td><code>\s</code></td>
+<td>Matches a whitespace</td>
+<td><code>\s</code> matches space, tab, newline.</td>
+</tr>
+<tr>
+<td><code>\S</code></td>
+<td>Matches a non-whitespace</td>
+<td><code>\S</code> matches <code>a</code>, <code>3</code>, etc.</td>
+</tr>
+<tr>
+<td><code>^</code></td>
+<td>Matches the start of a string</td>
+<td><code>^a</code> matches <code>apple</code> but not <code>banana</code>.</td>
+</tr>
+<tr>
+<td><code>$</code></td>
+<td>Matches the end of a string</td>
+<td><code>a$</code> matches <code>banana</code> but not <code>apple</code>.</td>
+</tr>
+<tr>
+<td><code>\|</code></td>
+<td>Matches either expression</td>
+<td><code>a\|b</code> matches <code>a</code> or <code>b</code>.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Common-Regex-Use-Cases"><strong>Common Regex Use Cases</strong><a class="anchor-link" href="#Common-Regex-Use-Cases">¶</a></h4><ul>
+<li><strong>Validate Email</strong>:<div class="highlight"><pre><span></span><span class="n">String</span><span class="w"> </span><span class="n">emailRegex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$"</span><span class="p">;</span>
+</pre></div>
+</li>
+<li><strong>Check if String is Numeric</strong>:<div class="highlight"><pre><span></span><span class="n">String</span><span class="w"> </span><span class="n">numRegex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"\\d+"</span><span class="p">;</span>
+</pre></div>
+</li>
+<li><strong>Split a String by Delimiters</strong>:<div class="highlight"><pre><span></span><span class="n">String</span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"apple,orange;banana"</span><span class="p">;</span>
+<span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">fruits</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">text</span><span class="p">.</span><span class="na">split</span><span class="p">(</span><span class="s">"[,;]"</span><span class="p">);</span>
+</pre></div>
+</li>
+</ul>
+<h4 id="Using-Pattern-and-Matcher"><strong>Using <code>Pattern</code> and <code>Matcher</code></strong><a class="anchor-link" href="#Using-Pattern-and-Matcher">¶</a></h4><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.regex.*</span><span class="p">;</span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">RegexExample</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"apple123banana456"</span><span class="p">;</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">regex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"\\d+"</span><span class="p">;</span><span class="w"> </span><span class="c1">// Match sequences of digits</span>
+
+<span class="w">        </span><span class="c1">// Compile the pattern</span>
+<span class="w">        </span><span class="n">Pattern</span><span class="w"> </span><span class="n">pattern</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Pattern</span><span class="p">.</span><span class="na">compile</span><span class="p">(</span><span class="n">regex</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Matcher</span><span class="w"> </span><span class="n">matcher</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pattern</span><span class="p">.</span><span class="na">matcher</span><span class="p">(</span><span class="n">text</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// Find matches</span>
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">matcher</span><span class="p">.</span><span class="na">find</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Matched: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">matcher</span><span class="p">.</span><span class="na">group</span><span class="p">());</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
 <h3>Boolean Expressions</h3>
 <p>Evaluate logical statements:</p>
 <ul>
@@ -7878,7 +8136,7 @@ int x = 5 &amp; 3;             // bitwise AND → 1
 <h3>Probing Question: Handling Mixed Input Types</h3>
 <p>Given a line of integers separated by spaces, how can you read them efficiently and compute sum, average, and maximum without extra overhead?</p>
 <h4>Pseudocode</h4>
-<pre>
+<pre style="margin-left: 25%; max-width: 50%;">
 initialize sum, count, max
 while there is more input
     read next integer
@@ -7899,7 +8157,7 @@ print sum, average, max
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-java"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Scanner</span><span class="p">;</span>
@@ -7961,10 +8219,97 @@ print sum, average, max
 <li><code>Scanner</code> reads tokens, lines, numbers</li>
 <li>File input via <code>Scanner(File)</code> or <code>BufferedReader</code> for contests</li>
 </ul>
+<h4 id="Common-Format-Specifiers"><strong>Common Format Specifiers</strong><a class="anchor-link" href="#Common-Format-Specifiers">¶</a></h4><table>
+<thead>
+<tr>
+<th><strong>Specifier</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Example</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>%d</code></td>
+<td>Decimal integer</td>
+<td><code>System.out.printf("%d", 42);</code></td>
+</tr>
+<tr>
+<td><code>%f</code></td>
+<td>Floating-point number</td>
+<td><code>System.out.printf("%.2f", 3.14);</code></td>
+</tr>
+<tr>
+<td><code>%s</code></td>
+<td>String</td>
+<td><code>System.out.printf("%s", "text");</code></td>
+</tr>
+<tr>
+<td><code>%c</code></td>
+<td>Character</td>
+<td><code>System.out.printf("%c", 'A');</code></td>
+</tr>
+<tr>
+<td><code>%n</code></td>
+<td>Newline (platform-independent)</td>
+<td><code>System.out.printf("%n");</code></td>
+</tr>
+<tr>
+<td><code>%x</code> / <code>%X</code></td>
+<td>Hexadecimal (lowercase/uppercase)</td>
+<td><code>System.out.printf("%x", 255);</code></td>
+</tr>
+<tr>
+<td><code>%e</code></td>
+<td>Scientific notation (lowercase)</td>
+<td><code>System.out.printf("%e", 0.0003);</code></td>
+</tr>
+<tr>
+<td><code>%g</code></td>
+<td>Shortest of <code>%e</code> or <code>%f</code></td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Formatting-Flags"><strong>Formatting Flags</strong><a class="anchor-link" href="#Formatting-Flags">¶</a></h4><table>
+<thead>
+<tr>
+<th><strong>Flag</strong></th>
+<th><strong>Meaning</strong></th>
+<th><strong>Example</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-</code></td>
+<td>Left-justify the output</td>
+<td><code>%10d</code> vs <code>%-10d</code></td>
+</tr>
+<tr>
+<td><code>+</code></td>
+<td>Include a <code>+</code> sign for positive numbers</td>
+<td><code>%+d</code> -&gt; <code>+42</code>, <code>-42</code></td>
+</tr>
+<tr>
+<td><code>0</code></td>
+<td>Pad numbers with leading zeros</td>
+<td><code>%05d</code> -&gt; <code>00042</code></td>
+</tr>
+<tr>
+<td><code>,</code></td>
+<td>Include commas in numbers</td>
+<td><code>%,d</code> -&gt; <code>1,000</code></td>
+</tr>
+<tr>
+<td><code>( )</code></td>
+<td>Enclose negative numbers in parentheses</td>
+<td><code>%(d</code> -&gt; <code>(42)</code></td>
+</tr>
+</tbody>
+</table>
 <h3>Probing Question: Summing Even Numbers Only</h3>
 <p>Given a sequence of numbers, sum only the even ones efficiently.</p>
 <h4>Pseudocode</h4>
-<pre>
+<pre style="margin-left: 25%; max-width: 50%;">
 initialize sum to 0
 while input has next integer
     read number
@@ -7982,7 +8327,7 @@ print sum
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-java"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Scanner</span><span class="p">;</span>
@@ -8033,7 +8378,7 @@ print sum
 <h3>Probing Question: Track Team Scores</h3>
 <p>How can you create a class that stores multiple team members with scores and calculates averages dynamically?</p>
 <h4>Pseudocode</h4>
-<pre>
+<pre style="margin-left: 25%; max-width: 50%;">
 define class Team
     list of member names
     list of scores
@@ -8053,7 +8398,7 @@ print average score
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-java"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.ArrayList</span><span class="p">;</span>
@@ -8120,7 +8465,7 @@ print average score
 <h3>Probing Question: Maintain a Sorted List</h3>
 <p>How can you input values one at a time and keep a sorted list dynamically without sorting the entire list after each input?</p>
 <h4>Pseudocode</h4>
-<pre>
+<pre style="margin-left: 25%; max-width: 50%;">
 initialize empty list
 for each input value
     find correct insertion position (binary search)
@@ -8137,7 +8482,7 @@ print list
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-java"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.ArrayList</span><span class="p">;</span>
@@ -8185,10 +8530,280 @@ print list
 <li>Sequential Search: O(n), scan each element</li>
 <li>Binary Search: O(log n), requires sorted array</li>
 </ul>
+<h1 id="Sorting-Algorithms-">Sorting Algorithms <a name="SORTS"></a><a class="anchor-link" href="#Sorting-Algorithms-">¶</a></h1><h3 id="1.-Bubble-Sort">1. <strong>Bubble Sort</strong><a class="anchor-link" href="#1.-Bubble-Sort">¶</a></h3><ul>
+<li><strong>Time Complexity</strong>:<ul>
+<li>Fastest: (O(n)) (if already sorted)</li>
+<li>Average: (O(n^2))</li>
+<li>Slowest: (O(n^2))</li>
+</ul>
+</li>
+<li><strong>Explanation</strong>: Repeatedly swaps adjacent elements if they are in the wrong order.</li>
+<li><strong>Code</strong>:</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">bubbleSort</span><span class="p">(</span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">arr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arr</span><span class="p">.</span><span class="na">length</span><span class="p">;</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">arr</span><span class="o">[</span><span class="n">j</span><span class="o">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">arr</span><span class="o">[</span><span class="n">j</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="o">]</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="kt">int</span><span class="w"> </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arr</span><span class="o">[</span><span class="n">j</span><span class="o">]</span><span class="p">;</span>
+<span class="w">                </span><span class="n">arr</span><span class="o">[</span><span class="n">j</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arr</span><span class="o">[</span><span class="n">j</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="o">]</span><span class="p">;</span>
+<span class="w">                </span><span class="n">arr</span><span class="o">[</span><span class="n">j</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+<hr/>
+<h3 id="2.-Selection-Sort">2. <strong>Selection Sort</strong><a class="anchor-link" href="#2.-Selection-Sort">¶</a></h3><ul>
+<li><strong>Time Complexity</strong>:<ul>
+<li>Fastest: (O(n^2))</li>
+<li>Average: (O(n^2))</li>
+<li>Slowest: (O(n^2))</li>
+</ul>
+</li>
+<li><strong>Explanation</strong>: Finds the smallest element and places it at the beginning of the unsorted array.</li>
+<li><strong>Code</strong>:</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">selectionSort</span><span class="p">(</span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">arr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arr</span><span class="p">.</span><span class="na">length</span><span class="p">;</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">minIdx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">arr</span><span class="o">[</span><span class="n">j</span><span class="o">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">arr</span><span class="o">[</span><span class="n">minIdx</span><span class="o">]</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">minIdx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arr</span><span class="o">[</span><span class="n">minIdx</span><span class="o">]</span><span class="p">;</span>
+<span class="w">        </span><span class="n">arr</span><span class="o">[</span><span class="n">minIdx</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">;</span>
+<span class="w">        </span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+<hr/>
+<h3 id="3.-Insertion-Sort">3. <strong>Insertion Sort</strong><a class="anchor-link" href="#3.-Insertion-Sort">¶</a></h3><ul>
+<li><strong>Time Complexity</strong>:<ul>
+<li>Fastest: (O(n)) (if already sorted)</li>
+<li>Average: (O(n^2))</li>
+<li>Slowest: (O(n^2))</li>
+</ul>
+</li>
+<li><strong>Explanation</strong>: Builds the sorted array one element at a time by inserting elements into their correct positions.</li>
+<li><strong>Code</strong>:</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">insertionSort</span><span class="p">(</span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">arr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arr</span><span class="p">.</span><span class="na">length</span><span class="p">;</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">;</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">arr</span><span class="o">[</span><span class="n">j</span><span class="o">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">key</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">arr</span><span class="o">[</span><span class="n">j</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arr</span><span class="o">[</span><span class="n">j</span><span class="o">]</span><span class="p">;</span>
+<span class="w">            </span><span class="n">j</span><span class="o">--</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="n">arr</span><span class="o">[</span><span class="n">j</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">key</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+<hr/>
+<h3 id="4.-Merge-Sort">4. <strong>Merge Sort</strong><a class="anchor-link" href="#4.-Merge-Sort">¶</a></h3><ul>
+<li><strong>Time Complexity</strong>:<ul>
+<li>Fastest: (O(n \log n))</li>
+<li>Average: (O(n \log n))</li>
+<li>Slowest: (O(n \log n))</li>
+</ul>
+</li>
+<li><strong>Explanation</strong>: Divides the array into halves, recursively sorts them, and then merges them back together.</li>
+<li><strong>Code</strong>:</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">mergeSort</span><span class="p">(</span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">arr</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">right</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">left</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">right</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">mid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">right</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">left</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">        </span><span class="n">mergeSort</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span><span class="w"> </span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="n">mid</span><span class="p">);</span>
+<span class="w">        </span><span class="n">mergeSort</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span><span class="w"> </span><span class="n">mid</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">right</span><span class="p">);</span>
+<span class="w">        </span><span class="n">merge</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span><span class="w"> </span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="n">mid</span><span class="p">,</span><span class="w"> </span><span class="n">right</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+<span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">merge</span><span class="p">(</span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">arr</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">mid</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">right</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mid</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">right</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">mid</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">L</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[</span><span class="n">n1</span><span class="o">]</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">R</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[</span><span class="n">n2</span><span class="o">]</span><span class="p">;</span>
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">arraycopy</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span><span class="w"> </span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="n">L</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">n1</span><span class="p">);</span>
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">arraycopy</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span><span class="w"> </span><span class="n">mid</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">R</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">n2</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">left</span><span class="p">;</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n1</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">L</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">R</span><span class="o">[</span><span class="n">j</span><span class="o">]</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">arr</span><span class="o">[</span><span class="n">k</span><span class="o">++]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">L</span><span class="o">[</span><span class="n">i</span><span class="o">++]</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">arr</span><span class="o">[</span><span class="n">k</span><span class="o">++]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">R</span><span class="o">[</span><span class="n">j</span><span class="o">++]</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n1</span><span class="p">)</span><span class="w"> </span><span class="n">arr</span><span class="o">[</span><span class="n">k</span><span class="o">++]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">L</span><span class="o">[</span><span class="n">i</span><span class="o">++]</span><span class="p">;</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n2</span><span class="p">)</span><span class="w"> </span><span class="n">arr</span><span class="o">[</span><span class="n">k</span><span class="o">++]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">R</span><span class="o">[</span><span class="n">j</span><span class="o">++]</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+<hr/>
+<h3 id="5.-Quick-Sort">5. <strong>Quick Sort</strong><a class="anchor-link" href="#5.-Quick-Sort">¶</a></h3><ul>
+<li><strong>Time Complexity</strong>:<ul>
+<li>Fastest: (O(n \log n))</li>
+<li>Average: (O(n \log n))</li>
+<li>Slowest: (O(n^2)) (worst pivot choice)</li>
+</ul>
+</li>
+<li><strong>Explanation</strong>: Partitions the array into two parts based on a pivot and recursively sorts them.</li>
+<li><strong>Code</strong>:</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">quickSort</span><span class="p">(</span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">arr</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">low</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">high</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">low</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">high</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">pi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">partition</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span><span class="w"> </span><span class="n">low</span><span class="p">,</span><span class="w"> </span><span class="n">high</span><span class="p">);</span>
+<span class="w">        </span><span class="n">quickSort</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span><span class="w"> </span><span class="n">low</span><span class="p">,</span><span class="w"> </span><span class="n">pi</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">        </span><span class="n">quickSort</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span><span class="w"> </span><span class="n">pi</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">high</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+<span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">partition</span><span class="p">(</span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">arr</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">low</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">high</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">pivot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arr</span><span class="o">[</span><span class="n">high</span><span class="o">]</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">low</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">low</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">high</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">arr</span><span class="o">[</span><span class="n">j</span><span class="o">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">pivot</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">i</span><span class="o">++</span><span class="p">;</span>
+<span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">;</span>
+<span class="w">            </span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arr</span><span class="o">[</span><span class="n">j</span><span class="o">]</span><span class="p">;</span>
+<span class="w">            </span><span class="n">arr</span><span class="o">[</span><span class="n">j</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="o">]</span><span class="p">;</span>
+<span class="w">    </span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arr</span><span class="o">[</span><span class="n">high</span><span class="o">]</span><span class="p">;</span>
+<span class="w">    </span><span class="n">arr</span><span class="o">[</span><span class="n">high</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+<hr/>
+<h3 id="6.-Heap-Sort">6. <strong>Heap Sort</strong><a class="anchor-link" href="#6.-Heap-Sort">¶</a></h3><ul>
+<li><strong>Time Complexity</strong>:<ul>
+<li>Fastest: (O(n \log n))</li>
+<li>Average: (O(n \log n))</li>
+<li>Slowest: (O(n \log n))</li>
+</ul>
+</li>
+<li><strong>Explanation</strong>: Converts the array into a heap and repeatedly extracts the maximum element.</li>
+<li><strong>Code</strong>:</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">heapSort</span><span class="p">(</span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">arr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arr</span><span class="p">.</span><span class="na">length</span><span class="p">;</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">--</span><span class="p">)</span>
+<span class="w">        </span><span class="n">heapify</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">--</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arr</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">;</span>
+<span class="w">        </span><span class="n">arr</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">;</span>
+<span class="w">        </span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="p">;</span>
+<span class="w">        </span><span class="n">heapify</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+<span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">heapify</span><span class="p">(</span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">arr</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">largest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">left</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">arr</span><span class="o">[</span><span class="n">left</span><span class="o">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">arr</span><span class="o">[</span><span class="n">largest</span><span class="o">]</span><span class="p">)</span><span class="w"> </span><span class="n">largest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">left</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">right</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">arr</span><span class="o">[</span><span class="n">right</span><span class="o">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">arr</span><span class="o">[</span><span class="n">largest</span><span class="o">]</span><span class="p">)</span><span class="w"> </span><span class="n">largest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">right</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">largest</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">swap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">;</span>
+<span class="w">        </span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arr</span><span class="o">[</span><span class="n">largest</span><span class="o">]</span><span class="p">;</span>
+<span class="w">        </span><span class="n">arr</span><span class="o">[</span><span class="n">largest</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">swap</span><span class="p">;</span>
+<span class="w">        </span><span class="n">heapify</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">largest</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+<hr/>
+<h3 id="7.-Counting-Sort">7. <strong>Counting Sort</strong><a class="anchor-link" href="#7.-Counting-Sort">¶</a></h3><ul>
+<li><strong>Time Complexity</strong>:<ul>
+<li>Fastest: (O(n+k))</li>
+<li>Average: (O(n+k))</li>
+<li>Slowest: (O(n+k))</li>
+</ul>
+</li>
+<li><strong>Explanation</strong>: Counts the frequency of each element and arranges them accordingly.</li>
+<li><strong>Code</strong>:</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">countingSort</span><span class="p">(</span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">arr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">stream</span><span class="p">(</span><span class="n">arr</span><span class="p">).</span><span class="na">max</span><span class="p">().</span><span class="na">getAsInt</span><span class="p">();</span>
+<span class="w">    </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[</span><span class="n">max</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="o">]</span><span class="p">;</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">arr</span><span class="p">)</span><span class="w"> </span><span class="n">count</span><span class="o">[</span><span class="n">num</span><span class="o">]++</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">idx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">count</span><span class="p">.</span><span class="na">length</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">count</span><span class="o">[</span><span class="n">i</span><span class="o">]--</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">arr</span><span class="o">[</span><span class="n">idx</span><span class="o">++]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+<hr/>
+<h3 id="8.-Radix-Sort">8. <strong>Radix Sort</strong><a class="anchor-link" href="#8.-Radix-Sort">¶</a></h3><ul>
+<li><strong>Time Complexity</strong>:<ul>
+<li>Fastest: (O(nk))</li>
+<li>Average: (O(nk))</li>
+<li>Slowest: (O(nk))</li>
+</ul>
+</li>
+<li><strong>Explanation</strong>: Sorts based on individual digits, starting from the least significant to the most significant.</li>
+<li><strong>Code</strong>:</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">radixSort</span><span class="p">(</span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">arr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">stream</span><span class="p">(</span><span class="n">arr</span><span class="p">).</span><span class="na">max</span><span class="p">().</span><span class="na">getAsInt</span><span class="p">();</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">exp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">max</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">exp</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">exp</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span>
+<span class="w">        </span><span class="n">countingSortByDigit</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span><span class="w"> </span><span class="n">exp</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">countingSortByDigit</span><span class="p">(</span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">arr</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">exp</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arr</span><span class="p">.</span><span class="na">length</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[</span><span class="n">n</span><span class="o">]</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[</span><span class="mi">10</span><span class="o">]</span><span class="p">;</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">arr</span><span class="p">)</span><span class="w"> </span><span class="n">count</span><span class="o">[</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">exp</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">10</span><span class="o">]++</span><span class="p">;</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="n">count</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">count</span><span class="o">[</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="o">]</span><span class="p">;</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">--</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">output</span><span class="o">[</span><span class="n">count</span><span class="o">[</span><span class="p">(</span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">exp</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">10</span><span class="o">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">;</span>
+<span class="w">        </span><span class="n">count</span><span class="o">[</span><span class="p">(</span><span class="n">arr</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">exp</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">10</span><span class="o">]--</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">arraycopy</span><span class="p">(</span><span class="n">output</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">arr</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+<hr/>
+<h3 id="9.-Bucket-Sort">9. <strong>Bucket Sort</strong><a class="anchor-link" href="#9.-Bucket-Sort">¶</a></h3><ul>
+<li><strong>Time Complexity</strong>:<ul>
+<li>Fastest: (O(n + k))</li>
+<li>Average: (O(n + k))</li>
+<li>Slowest: (O(n^2)) (if buckets aren't distributed well)</li>
+</ul>
+</li>
+<li><strong>Explanation</strong>: Distributes elements into buckets, sorts each bucket, and merges them.</li>
+<li><strong>Code</strong>:</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">bucketSort</span><span class="p">(</span><span class="kt">float</span><span class="o">[]</span><span class="w"> </span><span class="n">arr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arr</span><span class="p">.</span><span class="na">length</span><span class="p">;</span>
+<span class="w">    </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Float</span><span class="o">&gt;[]</span><span class="w"> </span><span class="n">buckets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">[</span><span class="n">n</span><span class="o">]</span><span class="p">;</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="n">buckets</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">arr</span><span class="p">)</span><span class="w"> </span><span class="n">buckets</span><span class="o">[</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">num</span><span class="p">)</span><span class="o">]</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">num</span><span class="p">);</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Float</span><span class="o">&gt;</span><span class="w"> </span><span class="n">bucket</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">buckets</span><span class="p">)</span><span class="w"> </span><span class="n">Collections</span><span class="p">.</span><span class="na">sort</span><span class="p">(</span><span class="n">bucket</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">idx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Float</span><span class="o">&gt;</span><span class="w"> </span><span class="n">bucket</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">buckets</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">bucket</span><span class="p">)</span><span class="w"> </span><span class="n">arr</span><span class="o">[</span><span class="n">idx</span><span class="o">++]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">num</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+<hr/>
+<h3 id="10.-Tim-Sort-(Java%E2%80%99s-Default-Sort-in-Arrays.sort())">10. <strong>Tim Sort (Java’s Default Sort in Arrays.sort())</strong><a class="anchor-link" href="#10.-Tim-Sort-(Java%E2%80%99s-Default-Sort-in-Arrays.sort())">¶</a></h3><ul>
+<li><strong>Time Complexity</strong>:<ul>
+<li>Fastest: (O(n))</li>
+<li>Average: (O(n \log n))</li>
+<li>Slowest: (O(n \log n))</li>
+</ul>
+</li>
+<li><strong>Explanation</strong>: Hybrid sort combining Merge Sort and Insertion Sort.</li>
+<li><strong>Code</strong>:</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="n">Arrays</span><span class="p">.</span><span class="na">sort</span><span class="p">(</span><span class="n">arr</span><span class="p">);</span><span class="w"> </span><span class="c1">// Java's built-in TimSort implementation</span>
+</pre></div>
 <h3>Probing Question: Find Top Scores Quickly</h3>
 <p>Given a list of student scores, how can you find the top 3 highest scores efficiently?</p>
 <h4>Pseudocode</h4>
-<pre>
+<pre style="margin-left: 25%; max-width: 50%;">
 initialize min-heap of size 3
 for each score in input
     if heap not full, add score
@@ -8205,7 +8820,7 @@ print heap elements
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-java"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.PriorityQueue</span><span class="p">;</span>
@@ -8263,7 +8878,7 @@ print heap elements
 <h3>Probing Question: Compute Tree Height</h3>
 <p>Given a binary tree, how do you compute its height recursively?</p>
 <h4>Pseudocode</h4>
-<pre>
+<pre style="margin-left: 25%; max-width: 50%;">
 if node is null, return 0
 leftHeight = height(node.left)
 rightHeight = height(node.right)
@@ -8279,7 +8894,7 @@ return max(leftHeight, rightHeight) + 1
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-java"><pre><span></span><span class="kd">class</span> <span class="nc">TreeNode</span><span class="w"> </span><span class="p">{</span>
@@ -8341,7 +8956,7 @@ return max(leftHeight, rightHeight) + 1
 <h3>Probing Question: Evaluate Postfix Expression</h3>
 <p>Given a postfix expression like <code>3 4 + 2 *</code>, how do you compute the result using a stack?</p>
 <h4>Pseudocode</h4>
-<pre>
+<pre style="margin-left: 25%; max-width: 50%;">
 initialize empty stack
 for each token in expression
     if token is number, push onto stack
@@ -8361,7 +8976,7 @@ return top of stack
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-java"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Scanner</span><span class="p">;</span>
@@ -8425,7 +9040,7 @@ return top of stack
 <h3>Probing Question: Compute Fibonacci Efficiently</h3>
 <p>Compute the nth Fibonacci number without redundant recursion.</p>
 <h4>Pseudocode</h4>
-<pre>
+<pre style="margin-left: 25%; max-width: 50%;">
 initialize array dp[0..n]
 dp[0] = 0, dp[1] = 1
 for i = 2 to n
@@ -8442,7 +9057,7 @@ return dp[n]
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-java"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">FibonacciDP</span><span class="w"> </span><span class="p">{</span>
