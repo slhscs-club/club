@@ -21,8 +21,8 @@ for dirpath, dirs, files in os.walk(root):
                             header_lines.append(s)
                         elif s.strip().startswith('/*'):
                             header_lines.append(s)
-                            # read until */
-                            for line2 in fh:
+                            # read until */, unless it closed on this line
+                            for line2 in ([] if '*/' in s else fh):
                                 header_lines.append(line2.rstrip('\n'))
                                 if '*/' in line2:
                                     break
