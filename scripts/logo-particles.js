@@ -64,7 +64,7 @@ function Particle(x,y) {
     this.accY = 0;
     this.friction = Math.random() * 0.01 + 0.94;
 
-    this.color = colors[Math.floor(Math.random() * 6)];
+    this.color = colors[Math.floor(Math.random() * colors.length)];
 }
 
 Particle.prototype.render = function() {
