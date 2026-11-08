@@ -1,7 +1,7 @@
 import os
 from pathlib import Path
 
-root = Path(r"c:\Users\agoda\Downloads\club-1\guide\taylor")
+root = Path(__file__).resolve().parent.parent / "guide" / "taylor"  # was a hard-coded Windows path
 count_written = 0
 for dirpath, dirs, files in os.walk(root):
     for f in files:
