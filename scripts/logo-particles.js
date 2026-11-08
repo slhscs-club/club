@@ -119,7 +119,7 @@ function initScene() {
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    img = new Image();
+    const img = new Image();
     img.crossOrigin = "Anonymous";
     img.src = 'images/logo.png';
     img.onload = function (e)

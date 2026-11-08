@@ -53,6 +53,8 @@ for name in names:
 
     for ext in ["py", "java", "cpp"]:
         file_path = os.path.join(folder_path, f"{name}.{ext}")
+        if os.path.exists(file_path):  # never clobber existing student work
+            continue
         if ext == "java":
             with open(file_path, "w", encoding="utf-8") as f:
                 f.write(f"// {d[name]} in Java\n")
